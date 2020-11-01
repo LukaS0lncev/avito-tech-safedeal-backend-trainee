@@ -1,0 +1,19 @@
+{
+    "name": "api.paimon.pro/api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "LukaS0lncev",
+            "email": "paimon.pro@mail.ru"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DB\\": "src/Classes/DB"
+        },
+        "files": [
+            "config/settings.php"
+        ]
+    }
+}
