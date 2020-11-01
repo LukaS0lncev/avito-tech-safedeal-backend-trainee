@@ -9,9 +9,11 @@ class DbPDO extends \PDO
         parent::__construct($dsn, _DB_USER_, _DB_PASSWD_);
     }
     
-    public static function test()
+    public function getAllTableValues($table_name)
     {
-        echo 'DbPDO';
+        $sql = 'SELECT * FROM ' . $table_name;
+        return $this->query($sql);
+
     }
 
 }
