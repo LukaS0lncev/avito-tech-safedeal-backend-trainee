@@ -30,17 +30,28 @@ class Route
         }
     }
     
-
+    /**
+     * Получаем метод
+     * @return GET|POST|PUT|DELETE
+     */
     public function getMethod()
     {
         return $this->method;
     }
 
+    /**
+     * Получаем Массив GET параметров
+     * @return array
+     */
     public function getRequestUri()
     {
         return $this->requestUri;
     }
 
+    /**
+     * Получаем параметры запроса
+     * @return array
+     */
     public function getRequestParams()
     {
         return $this->requestParams;

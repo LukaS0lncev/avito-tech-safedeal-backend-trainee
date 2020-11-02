@@ -34,11 +34,19 @@ abstract class Api
         }
     }
 
+    /**
+     * Возвращаем json строку и устанавливаем статус ответа в заголовок
+     * @return string
+     */
     protected function response($data, $status = 500) {
         header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
         return json_encode($data);
     }
 
+    /**
+     * Возвращаем статус по коду
+     * @return string
+     */
     private function requestStatus($code) {
         $status = array(
             200 => 'OK',
@@ -49,6 +57,10 @@ abstract class Api
         return ($status[$code])?$status[$code]:$status[500];
     }
 
+    /**
+     * Получаем тип события
+     * @return string
+     */
     protected function getAction()
     {
         $method = $this->method;
@@ -75,19 +87,15 @@ abstract class Api
         }
     }
 
+    /**
+     * Вызываем нужный нам API
+     * @return Object
+     */
     public function getApi($apiName = false)
     {
         switch ($apiName) {
             case 'order':
                 $api = new OrderApi();
-                $api->apiName = $apiName;
-                return $api;
-            case 'delivery':
-                $api = new DeliveryApi();
-                $api->apiName = $apiName;
-                return $api;
-            case 'customer':
-                $api = new CustomerApi();
                 $api->apiName = $apiName;
                 return $api;
         }
