@@ -1,8 +1,6 @@
 <?php
 namespace Api;
 
-use Models\Order;
-
 class RunApi extends Api
 {
     public $apiName;
@@ -11,17 +9,22 @@ class RunApi extends Api
     {
         
         $api = $this->getApi($this->apiName);
-        $api->indexAction();
+        $response = $api->indexAction();
+        echo $response;
     }
 
     public function viewAction()
     {
-        echo 'viewAction';
+        $api = $this->getApi($this->apiName);
+        $response = $api->viewAction($this->apiId);
+        echo $response;
     }
 
     public function createAction()
     {
-        echo 'createAction';
+        $api = $this->getApi($this->apiName);
+        $response = $api->createAction($this->apiId);
+        echo $response;
     }
 
     public function updateAction()

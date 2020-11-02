@@ -5,6 +5,7 @@ abstract class Api
 {
     
     public $apiName = ''; //users
+    protected $apiId = '';
     protected $method = ''; //GET|POST|PUT|DELETE
     protected $requestUri = [];
     protected $requestParams = [];
@@ -54,6 +55,7 @@ abstract class Api
         switch ($method) {
             case 'GET':
                 if($this->requestUri){
+                    $this->apiId = $this->requestUri[0];
                     return 'viewAction';
                 } else {
                     return 'indexAction';
@@ -90,12 +92,4 @@ abstract class Api
                 return $api;
         }
     }
-
-    /*
-    abstract protected function indexAction();
-    abstract protected function viewAction();
-    abstract protected function createAction();
-    abstract protected function updateAction();
-    abstract protected function deleteAction();
-    */
 }
