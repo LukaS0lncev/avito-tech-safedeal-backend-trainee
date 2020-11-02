@@ -1,7 +1,7 @@
 <?php
-namespace Order;
+namespace Models;
 
-class Order
+class Customer
 {
     public function __construct()
     {

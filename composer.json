@@ -11,9 +11,9 @@
     "autoload": {
         "psr-4": {
             "DB\\": "src/Classes/DB",
-            "Customer\\": "src/Classes/Customer",
-            "Order\\": "src/Classes/Order",
-            "Delivery\\": "src/Classes/Delivery"
+            "Models\\": "src/Models",
+            "Api\\": "src/Classes/Api",
+            "Tools\\": "src/Classes/Tools"
         },
         "files": [
             "config/settings.php"

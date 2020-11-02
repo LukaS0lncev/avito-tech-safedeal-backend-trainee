@@ -1,7 +1,7 @@
 <?php
-namespace Customer;
+namespace Models;
 
-class Customer
+class Delivery
 {
     public function __construct()
     {

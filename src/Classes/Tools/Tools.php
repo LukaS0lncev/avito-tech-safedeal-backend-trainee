@@ -1,7 +1,7 @@
 <?php
-namespace Delivery;
+namespace Tools;
 
-class Delivery
+class Tools
 {
     public function __construct()
     {

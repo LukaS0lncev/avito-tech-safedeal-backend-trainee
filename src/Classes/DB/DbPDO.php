@@ -16,4 +16,9 @@ class DbPDO extends \PDO
 
     }
 
+    public function getSqlQueryResult($sql)
+    {
+        return $this->query($sql);
+    }
+
 }
