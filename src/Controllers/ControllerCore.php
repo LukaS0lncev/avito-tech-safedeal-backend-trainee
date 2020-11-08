@@ -9,7 +9,7 @@ class ControllerCore
      */
     protected function response($data, $status = 500) {
         header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
-        echo json_encode($data);
+        return json_encode($data);
     }
 
     /**

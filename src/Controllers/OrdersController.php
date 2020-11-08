@@ -10,14 +10,11 @@ class OrdersController extends ControllerCore
         $id_order = $parameters['id_order'];
         $order = Order::find($id_order);
         if($order) {
-            return parent::response($order, 200);
+            echo parent::response($order, 200);
         }
         else {
-            return parent::response($order, 404);
+            echo parent::response($order, 404);
         }
         
     }
-
-
- 
 }

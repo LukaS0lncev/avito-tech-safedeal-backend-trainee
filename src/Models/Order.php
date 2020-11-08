@@ -19,9 +19,12 @@ class Order
      */
     public static function all()
     {
-        $db = new \DB\DbPDO();
-        $result = $db->getAllTableValues(self::TABLE_NAME);
-        return $result;
+        $mysqlBuilder = new MysqlBuilder();
+        $db = new DbPdoBuilder();
+        $sql = $mysqlBuilder
+                ->select(self::TABLE_NAME, ["id_order", "id_customer"])
+                ->getSQL();
+        return $db->execute($sql)->toArray();
     }
 
     /**
@@ -44,11 +47,7 @@ class Order
      */
     public static function save($parameter)
     {
-        $db = new \DB\DbPDO();
-        $sql = 'INSERT INTO '.self::TABLE_NAME.' (id_customer) VALUES (:id_customer)';
-        $result= $db->prepare($sql);
-        $result->execute($parameter);
-        return $result;
+
     }
 
 }
