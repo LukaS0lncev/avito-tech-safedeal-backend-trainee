@@ -3,7 +3,6 @@ namespace Factory\DB;
 
 interface DbPdoBuilderInterface
 {
-    public function test(): DbPdoBuilderInterface;
     public function execute(string $sql): DbPdoBuilderInterface;
     public function toArray(): array;
     public function toJson(): string;
@@ -12,21 +11,18 @@ interface DbPdoBuilderInterface
 class DbPdoBuilder implements DbPdoBuilderInterface
 {
     protected $db;
-    
-    public function __construct()
+
+    protected function reset(): void
     {
+        $this->db = new \stdClass();
         $dsn = sprintf( 'mysql:dbname=%s;port=%s;host=%s', _DB_NAME_, _DB_PORT_, _DB_SERVER_);
         $opt = [
             \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
             \PDO::ATTR_EMULATE_PREPARES   => false,
         ];
-        $this->db->pdo = new \PDO($dsn, _DB_USER_, _DB_PASSWD_, $opt);
-    }
-    
-    public function test(): DbPdoBuilderInterface
-    {
-        return $this;
+        $db = new \PDO($dsn, _DB_USER_, _DB_PASSWD_, $opt);
+        $this->db->pdo = $db;
     }
 
     /**
@@ -34,6 +30,7 @@ class DbPdoBuilder implements DbPdoBuilderInterface
      */
     public function execute(string $sql): DbPdoBuilderInterface
     {
+        $this->reset();
         $db = $this->db->pdo;
         $this->db->execute = $db->query($sql);
         return $this;

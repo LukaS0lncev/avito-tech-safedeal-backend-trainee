@@ -3,6 +3,7 @@ require_once 'vendor/autoload.php';
 
 use \Factory\DB\MysqlBuilder;
 use \Factory\DB\DbPdoBuilder;
+use \Routes\Route;
 /*
 
 $route = new \Tools\Route();
@@ -29,8 +30,11 @@ if((($requestUri[0]) != 'api') || (!array_key_exists(1, $requestUri))){
 
 */
 //$test = new DbPdoBuilder();
-//print_r($test->test());
-//die;
+$request = new Route();
+print_r($request->run());
+die;
+
+
 function clientCode(MysqlBuilder $mysqlBuilder)
 {
     // ...
@@ -41,7 +45,13 @@ function clientCode(MysqlBuilder $mysqlBuilder)
         ->where("age", ">", 20)
         //->limit(10, 20)
         ->getSQL();
-    print_r($query);
+
+    $db = new DbPdoBuilder();
+    $results = $db
+            ->execute($query)
+            ->toJson();
+
+    print_r($results);
     die;
     //echo $query;
 

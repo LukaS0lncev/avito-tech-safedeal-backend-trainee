@@ -1,8 +1,6 @@
 <?php
 namespace Factory\DB;
 
-use DB\DbPDO;
-
 interface SqlBuilderInterface
 {
     public function select(string $table, array $fields): SqlBuilderInterface;

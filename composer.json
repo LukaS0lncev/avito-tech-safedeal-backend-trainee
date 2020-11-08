@@ -14,11 +14,14 @@
             "Models\\": "src/Models",
             "Api\\": "src/Classes/Api",
             "Tools\\": "src/Classes/Tools",
+            "Routes\\": "src/Classes/Routes",
             "Factory\\Api\\": "src/Classes/Factory/Api",
-            "Factory\\DB\\": "src/Classes/Factory/DB"
+            "Factory\\DB\\": "src/Classes/Factory/DB",
+            "Controllers\\": "src/Controllers"
         },
         "files": [
-            "config/settings.php"
+            "config/settings.php",
+            "config/routes.php"
         ]
     }
 }
