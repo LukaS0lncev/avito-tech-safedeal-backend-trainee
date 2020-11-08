@@ -1,11 +1,23 @@
 <?php
 namespace Controllers;
 
-class OrdersController
+use \Models\Order;
+
+class OrdersController extends ControllerCore
 {
-    public function get()
+    public function get(array $parameters = array())
     {
-        print_r('test');
-        die;
+        $id_order = $parameters['id_order'];
+        $order = Order::find($id_order);
+        if($order) {
+            return parent::response($order, 200);
+        }
+        else {
+            return parent::response($order, 404);
+        }
+        
     }
+
+
+ 
 }

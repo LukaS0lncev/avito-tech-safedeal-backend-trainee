@@ -1,5 +1,7 @@
 <?php
 namespace Models;
+use \Factory\DB\MysqlBuilder;
+use \Factory\DB\DbPdoBuilder;
 
 class Order
 {
@@ -8,7 +10,7 @@ class Order
 
     public function __construct()
     {
-       
+
     }
 
     /**
@@ -26,11 +28,15 @@ class Order
      * Получить значение orders по $id
      * @return array
      */
-    public static function find($id)
+    public static function find(int $id)
     {
-        $db = new \DB\DbPDO();
-        $result = $db->getAllTableValuesById(self::TABLE_NAME, self::ID_FIELD_NAME, $id);
-        return $result;
+        $mysqlBuilder = new MysqlBuilder();
+        $db = new DbPdoBuilder();
+        $sql = $mysqlBuilder
+                ->select(self::TABLE_NAME, ["id_order", "id_customer"])
+                ->where("id_order", "=", $id)
+                ->getSQL();
+        return $db->execute($sql)->toArray();
     }
     
     /**

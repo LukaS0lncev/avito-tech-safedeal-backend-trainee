@@ -2,19 +2,19 @@
 
 define('_ROUTERS_', 
     array(
-        'api' => array(
-            'get' => array(
+        'get' => array(
+            'api' => array(
                 'orders' => array(
-                    'all' => 'OrdersController@all',
-                    'get' => 'OrdersController@get',
-                    'add' => 'OrdersController@add',
-                    'delete' => 'OrdersController@delete'
+                    'all' => '\Controllers\OrdersController@all',
+                    'get/{id_order}' => '\Controllers\OrdersController@get',
+                    'add' => '\Controllers\OrdersController@add',
+                    'delete' => '\Controllers\OrdersController@delete'
                 ),
                 'cutomers' => array(
-                    'all' => 'CustomersController@all',
-                    'get' => 'CustomersController@get',
-                    'add' => 'CustomersController@add',
-                    'delete' => 'CustomersController@delete'
+                    'all' => '\Controllers\CustomersController@all',
+                    'get/{id_customer}' => '\Controllers\CustomersController@get',
+                    'add' => '\Controllers\CustomersController@add',
+                    'delete' => '\Controllers\CustomersController@delete'
                 )
             )
             
