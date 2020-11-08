@@ -29,7 +29,15 @@ class DbPDO extends \PDO
 
     public function getSqlQueryResult($sql)
     {
+        //$sql = $this->quote($sql);
+        
+        //return $this->query($sql);
+        //$results = $this->query($sql);
+        //print_r($results);
+        //die;
+        //$result = $results->fetchAll(\PDO::FETCH_ASSOC);
         return $this->query($sql);
     }
+    
 
 }

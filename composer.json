@@ -13,7 +13,9 @@
             "DB\\": "src/Classes/DB",
             "Models\\": "src/Models",
             "Api\\": "src/Classes/Api",
-            "Tools\\": "src/Classes/Tools"
+            "Tools\\": "src/Classes/Tools",
+            "Factory\\Api\\": "src/Classes/Factory/Api",
+            "Factory\\DB\\": "src/Classes/Factory/DB"
         },
         "files": [
             "config/settings.php"
