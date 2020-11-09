@@ -15,6 +15,5 @@ class OrdersController extends ControllerCore
         else {
             echo parent::response($order, 404);
         }
-        
     }
 }
